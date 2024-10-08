@@ -64,5 +64,10 @@ namespace ProjetoAgenda
         {
             MinimoDeCaracter();
         }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            string stringConexao = "Server=localhost;Database=dbAgenda;User ID=root;Password=root;";
+        }
     }
 }
