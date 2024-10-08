@@ -16,6 +16,17 @@ namespace ProjetoAgenda
         {
             InitializeComponent();
         }
+        private void MinimoDeCaracter()
+        {
+            if (txtSenha.Text.Length >= 8 && txtSenhaRep.Text.Length >= 8 && txtNome.Text.Length > 1 && txtUsuário.Text.Length > 5 && txtSenha.Text == txtSenhaRep.Text)
+            {
+                btnCadastro.Enabled = true;
+            }
+            else
+            {
+                btnCadastro.Enabled = false;
+            }
+        }
 
         private void frmCadastro_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -25,6 +36,33 @@ namespace ProjetoAgenda
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+            MinimoDeCaracter();
+        }
+
+
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            MinimoDeCaracter();
+        }
+
+        private void txtUsuário_TextChanged(object sender, EventArgs e)
+        {
+            MinimoDeCaracter();
+        }
+
+        private void txtTelefone_TextChanged(object sender, EventArgs e)
+        {
+            MinimoDeCaracter();
+        }
+
+        private void txtSenhaRep_TextChanged(object sender, EventArgs e)
+        {
+            MinimoDeCaracter();
         }
     }
 }

@@ -37,7 +37,7 @@
             label3 = new Label();
             txtSenha = new TextBox();
             label4 = new Label();
-            textBox1 = new TextBox();
+            txtSenhaRep = new TextBox();
             label5 = new Label();
             btnCadastro = new Button();
             btnEntrar = new Button();
@@ -59,6 +59,7 @@
             txtUsuário.Name = "txtUsuário";
             txtUsuário.Size = new Size(366, 33);
             txtUsuário.TabIndex = 2;
+            txtUsuário.TextChanged += txtUsuário_TextChanged;
             // 
             // txtNome
             // 
@@ -67,6 +68,7 @@
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(366, 33);
             txtNome.TabIndex = 2;
+            txtNome.TextChanged += txtNome_TextChanged;
             // 
             // label2
             // 
@@ -84,6 +86,7 @@
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(366, 33);
             txtTelefone.TabIndex = 2;
+            txtTelefone.TextChanged += txtTelefone_TextChanged;
             // 
             // label3
             // 
@@ -99,8 +102,10 @@
             txtSenha.Location = new Point(12, 319);
             txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";
+            txtSenha.PasswordChar = '❌';
             txtSenha.Size = new Size(230, 33);
             txtSenha.TabIndex = 2;
+            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // label4
             // 
@@ -111,13 +116,15 @@
             label4.TabIndex = 3;
             label4.Text = "Senha:";
             // 
-            // textBox1
+            // txtSenhaRep
             // 
-            textBox1.Location = new Point(12, 406);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 33);
-            textBox1.TabIndex = 2;
+            txtSenhaRep.Location = new Point(12, 406);
+            txtSenhaRep.Multiline = true;
+            txtSenhaRep.Name = "txtSenhaRep";
+            txtSenhaRep.PasswordChar = '❌';
+            txtSenhaRep.Size = new Size(230, 33);
+            txtSenhaRep.TabIndex = 2;
+            txtSenhaRep.TextChanged += txtSenhaRep_TextChanged;
             // 
             // label5
             // 
@@ -131,6 +138,7 @@
             // btnCadastro
             // 
             btnCadastro.BackColor = Color.Black;
+            btnCadastro.Enabled = false;
             btnCadastro.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCadastro.ForeColor = Color.White;
             btnCadastro.Location = new Point(89, 489);
@@ -167,7 +175,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(txtNome);
-            Controls.Add(textBox1);
+            Controls.Add(txtSenhaRep);
             Controls.Add(txtSenha);
             Controls.Add(txtTelefone);
             Controls.Add(txtUsuário);
@@ -189,7 +197,7 @@
         private Label label3;
         private TextBox txtSenha;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtSenhaRep;
         private Label label5;
         private Button btnCadastro;
         private Button btnEntrar;

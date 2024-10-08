@@ -60,6 +60,7 @@
             txtSenha.Location = new Point(78, 214);
             txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";
+            txtSenha.PasswordChar = '❌';
             txtSenha.Size = new Size(366, 33);
             txtSenha.TabIndex = 0;
             txtSenha.TextChanged += txtSenha_TextChanged;
