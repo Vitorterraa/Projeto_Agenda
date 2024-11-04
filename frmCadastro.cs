@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MySqlConnector;
+using ProjetoAgenda.Controller;
+using ProjetoAgenda.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,6 +66,24 @@ namespace ProjetoAgenda
         private void txtSenhaRep_TextChanged(object sender, EventArgs e)
         {
             MinimoDeCaracter();
+        }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            string nome = txtNome.Text;
+            string usuario = txtUsuário.Text;
+            string telefone = txtTelefone.Text;
+            string senha = txtSenha.Text;
+
+            UsuarioController controleUsuario = new UsuarioController();
+
+            bool resultado = controleUsuario.AddUsuario(nome, usuario, telefone, senha);
+
+            if (resultado)
+            {
+                MessageBox.Show("Cadastro efetuado com sucesso!!");
+            }
+            
         }
     }
 }
