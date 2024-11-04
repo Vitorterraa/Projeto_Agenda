@@ -83,6 +83,10 @@ namespace ProjetoAgenda
             {
                 MessageBox.Show("Cadastro efetuado com sucesso!!");
             }
+            else
+            {
+                MessageBox.Show("Erro ao efetuar seu cadastro");
+            }
             
         }
     }
