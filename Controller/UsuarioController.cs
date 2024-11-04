@@ -12,31 +12,40 @@ namespace ProjetoAgenda.Controller
     {
         public bool AddUsuario (string nome, string usuario, string telefone, string senha)
         {
-            MySqlConnection conexao = ConexaoDB.CriarConexao();
-
-            string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) values (@nome,  @usuario, @telefone, @senha);";
-
-            conexao.Open();
-
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-
-
-            comando.Parameters.AddWithValue("@nome", nome);
-            comando.Parameters.AddWithValue("@usuario", usuario);
-            comando.Parameters.AddWithValue("@telefone", telefone);
-            comando.Parameters.AddWithValue("@senha", senha);
-
-            int linhasAfetadas = comando.ExecuteNonQuery();
-
-            conexao.Close();
-
-            if( linhasAfetadas > 0 )
+            try
             {
-                return true;
-            }
-            else { return false; }
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-            
+                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) values (@nome,  @usuario, @telefone, @senha);";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@senha", senha);
+
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if (linhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else { return false; }
+
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao efetuar o cadastro: {erro.Message}");
+                return false;
+            }
+
         }
     }
 }
