@@ -1,3 +1,5 @@
+using ProjetoAgenda.Controller;
+
 namespace ProjetoAgenda
 {
     public partial class frmLogin : Form
@@ -27,8 +29,25 @@ namespace ProjetoAgenda
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            frmDentro formularioDentro = new frmDentro();
-            formularioDentro.ShowDialog();
+            
+
+            UsuarioController controleUsuario = new UsuarioController();
+
+            bool resultado = controleUsuario.LogarUsuario("@usuario", "@senha");
+
+            
+
+            if (resultado == true) 
+            {
+                frmDentro formularioDentro = new frmDentro();
+                formularioDentro.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Erro!!");
+            }
+
+            
         }
 
         private void txtUsuário_TextChanged(object sender, EventArgs e)

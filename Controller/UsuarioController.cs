@@ -47,5 +47,43 @@ namespace ProjetoAgenda.Controller
             }
 
         }
+
+        public bool LogarUsuario(string usuario, string senha)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = "select * from tbusuarios where binary usuario = @usuario and senha binary = @senha;";
+
+
+
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@senha", senha);
+
+                MySqlDataReader resultado = comando.ExecuteReader();
+
+                conexao.Close();
+
+                if (resultado.Read())
+                {
+                    return true;
+                }
+                else
+                { return false; }
+                
+            }
+            catch (Exception erro)
+            {
+                
+                return false;
+            }
+
+        }
     }
 }
