@@ -30,13 +30,17 @@ namespace ProjetoAgenda.Controller
 
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
-                conexao.Close();
+                
 
                 if (linhasAfetadas > 0)
                 {
+                    conexao.Close();
                     return true;
                 }
-                else { return false; }
+                else 
+                { 
+                    return false; 
+                }
 
             }
 
@@ -54,7 +58,7 @@ namespace ProjetoAgenda.Controller
             {
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-                string sql = "select * from tbusuarios where binary usuario = @usuario and senha binary = @senha;";
+                string sql = "select * from tbusuarios where usuario binary = @usuario and senha binary = @senha;";
 
 
 

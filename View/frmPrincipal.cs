@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetoAgenda
 {
-    public partial class frmDentro : Form
+    public partial class frmPrincipal : Form
     {
-        public frmDentro()
+        public frmPrincipal()
         {
             InitializeComponent();
         }

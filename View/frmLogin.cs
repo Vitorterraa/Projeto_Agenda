@@ -29,25 +29,28 @@ namespace ProjetoAgenda
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            
+
+
 
             UsuarioController controleUsuario = new UsuarioController();
 
             bool resultado = controleUsuario.LogarUsuario("@usuario", "@senha");
 
-            
+            string usuario = txtUsuário.Text;
+
+            string senha = txtSenha.Text;
+
 
             if (resultado == true) 
             {
-                frmDentro formularioDentro = new frmDentro();
-                formularioDentro.ShowDialog();
+                frmPrincipal formularioPrincipal = new frmPrincipal();
+                formularioPrincipal.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Erro!!");
-            }
+            }          
 
-            
         }
 
         private void txtUsuário_TextChanged(object sender, EventArgs e)
