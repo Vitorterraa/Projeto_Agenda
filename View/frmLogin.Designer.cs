@@ -39,38 +39,42 @@
             // 
             // txtUsuário
             // 
-            txtUsuário.Location = new Point(78, 111);
+            txtUsuário.Location = new Point(68, 83);
+            txtUsuário.Margin = new Padding(3, 2, 3, 2);
             txtUsuário.Multiline = true;
             txtUsuário.Name = "txtUsuário";
-            txtUsuário.Size = new Size(366, 33);
+            txtUsuário.Size = new Size(321, 26);
             txtUsuário.TabIndex = 0;
             txtUsuário.TextChanged += txtUsuário_TextChanged;
             // 
             // label1
             // 
+            label1.BackColor = Color.White;
             label1.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(78, 71);
+            label1.Location = new Point(68, 53);
             label1.Name = "label1";
-            label1.Size = new Size(125, 37);
+            label1.Size = new Size(109, 28);
             label1.TabIndex = 1;
             label1.Text = "Usuário:";
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(78, 214);
+            txtSenha.Location = new Point(68, 160);
+            txtSenha.Margin = new Padding(3, 2, 3, 2);
             txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '❌';
-            txtSenha.Size = new Size(366, 33);
+            txtSenha.Size = new Size(321, 26);
             txtSenha.TabIndex = 0;
             txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // label2
             // 
+            label2.BackColor = Color.White;
             label2.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(78, 174);
+            label2.Location = new Point(68, 130);
             label2.Name = "label2";
-            label2.Size = new Size(125, 37);
+            label2.Size = new Size(109, 28);
             label2.TabIndex = 1;
             label2.Text = "Senha:";
             // 
@@ -80,9 +84,10 @@
             btnEntrar.Enabled = false;
             btnEntrar.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEntrar.ForeColor = Color.White;
-            btnEntrar.Location = new Point(78, 325);
+            btnEntrar.Location = new Point(68, 244);
+            btnEntrar.Margin = new Padding(3, 2, 3, 2);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(153, 56);
+            btnEntrar.Size = new Size(134, 42);
             btnEntrar.TabIndex = 2;
             btnEntrar.Text = "Logar";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -93,9 +98,10 @@
             btnCadastro.BackColor = Color.Black;
             btnCadastro.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCadastro.ForeColor = Color.White;
-            btnCadastro.Location = new Point(291, 325);
+            btnCadastro.Location = new Point(255, 244);
+            btnCadastro.Margin = new Padding(3, 2, 3, 2);
             btnCadastro.Name = "btnCadastro";
-            btnCadastro.Size = new Size(153, 56);
+            btnCadastro.Size = new Size(134, 42);
             btnCadastro.TabIndex = 2;
             btnCadastro.Text = "Cadastrar";
             btnCadastro.UseVisualStyleBackColor = false;
@@ -103,10 +109,11 @@
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
-            ClientSize = new Size(553, 487);
+            BackgroundImage = Properties.Resources.categoria_sao_paulo;
+            ClientSize = new Size(484, 365);
             Controls.Add(btnCadastro);
             Controls.Add(btnEntrar);
             Controls.Add(label2);
@@ -114,6 +121,7 @@
             Controls.Add(txtSenha);
             Controls.Add(txtUsuário);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmLogin";
             Text = "Login";
             ResumeLayout(false);

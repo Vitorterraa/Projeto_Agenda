@@ -80,6 +80,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.sao_paulo_fundo2;
             ClientSize = new Size(844, 229);
             Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
