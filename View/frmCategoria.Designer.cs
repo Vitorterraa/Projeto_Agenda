@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoria));
             groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
             button1 = new Button();
+            txtNomeCategoria = new TextBox();
+            dataGridView1 = new DataGridView();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtNomeCategoria);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(327, 154);
@@ -45,14 +48,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Insira o nome da nova categoria";
             groupBox1.Enter += groupBox1_Enter;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(21, 33);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(283, 33);
-            textBox1.TabIndex = 0;
             // 
             // button1
             // 
@@ -62,17 +57,38 @@
             button1.TabIndex = 1;
             button1.Text = "Cadastrar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // txtNomeCategoria
+            // 
+            txtNomeCategoria.Location = new Point(21, 33);
+            txtNomeCategoria.Multiline = true;
+            txtNomeCategoria.Name = "txtNomeCategoria";
+            txtNomeCategoria.Size = new Size(283, 33);
+            txtNomeCategoria.TabIndex = 0;
+            txtNomeCategoria.TextChanged += textBox1_TextChanged;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(394, 12);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(326, 154);
+            dataGridView1.TabIndex = 1;
             // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(380, 207);
+            ClientSize = new Size(844, 229);
+            Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCategoria";
             Text = "frmCategoria";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -80,6 +96,7 @@
 
         private GroupBox groupBox1;
         private Button button1;
-        private TextBox textBox1;
+        private TextBox txtNomeCategoria;
+        private DataGridView dataGridView1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoAgenda.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,12 @@ namespace ProjetoAgenda
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria formularioCategorias = new frmCategoria();
+            formularioCategorias.ShowDialog();
         }
     }
 }
