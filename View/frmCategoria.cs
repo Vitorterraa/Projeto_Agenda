@@ -26,7 +26,6 @@ namespace ProjetoAgenda.View
         private void button1_Click(object sender, EventArgs e)
         {
 
-
             CategoriaController controleCategoria = new CategoriaController();
 
             bool resultado = controleCategoria.AddCategoria(txtNomeCategoria.Text);
@@ -40,10 +39,11 @@ namespace ProjetoAgenda.View
                 MessageBox.Show("Erro ao efetuar seu cadastro");
             }
 
-            
+
             DataTable tabela = controleCategoria.GetCategorias();
 
             dgvCategoria.DataSource = tabela;
+
 
         }
 
