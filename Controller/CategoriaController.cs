@@ -2,6 +2,7 @@
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -89,6 +90,14 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 MessageBox.Show($"Erro ao recuperar categorias {erro.Message}");
+
+                return new DataTable();
+
+
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
     }

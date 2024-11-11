@@ -45,6 +45,7 @@
             // 
             // label1
             // 
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(10, 89);
             label1.Name = "label1";
@@ -74,6 +75,7 @@
             // 
             // label2
             // 
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(10, 33);
             label2.Name = "label2";
@@ -93,6 +95,7 @@
             // 
             // label3
             // 
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(10, 155);
             label3.Name = "label3";
@@ -113,6 +116,7 @@
             // 
             // label4
             // 
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(10, 218);
             label4.Name = "label4";
@@ -133,6 +137,7 @@
             // 
             // label5
             // 
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(10, 283);
             label5.Name = "label5";
@@ -174,6 +179,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 255, 255);
+            BackgroundImage = Properties.Resources.sao_paulo_fundo3;
             ClientSize = new Size(497, 442);
             Controls.Add(btnCadastro);
             Controls.Add(btnEntrar);
