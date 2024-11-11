@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetoAgenda
+namespace ProjetoAgenda.View
 {
-    public partial class frmPrincipal : Form
+    public partial class frmCategoria : Form
     {
-        public frmPrincipal()
+        public frmCategoria()
         {
             InitializeComponent();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void arquivoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
         }

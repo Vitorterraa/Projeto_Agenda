@@ -4,6 +4,8 @@ namespace ProjetoAgenda
 {
     public partial class frmLogin : Form
     {
+        
+
         public frmLogin()
         {
             InitializeComponent();
@@ -11,7 +13,10 @@ namespace ProjetoAgenda
 
         private void HabilitarBotaoLogin()
         {
-            if (txtSenha.Text.Length >= 8 && txtUsuário.Text != "")
+
+            
+
+            if (txtUsuário.Text.Length > 0 && txtSenha.Text.Length >= 4)
             {
                 btnEntrar.Enabled = true;
             }
@@ -31,14 +36,15 @@ namespace ProjetoAgenda
         {
 
 
-
-            UsuarioController controleUsuario = new UsuarioController();
-
-            bool resultado = controleUsuario.LogarUsuario("@usuario", "@senha");
-
             string usuario = txtUsuário.Text;
 
             string senha = txtSenha.Text;
+
+            UsuarioController controleUsuario = new UsuarioController();
+
+            bool resultado = controleUsuario.LogarUsuario(txtUsuário.Text, txtSenha.Text);
+
+            
 
 
             if (resultado == true) 
@@ -46,10 +52,7 @@ namespace ProjetoAgenda
                 frmPrincipal formularioPrincipal = new frmPrincipal();
                 formularioPrincipal.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Erro!!");
-            }          
+                   
 
         }
 
