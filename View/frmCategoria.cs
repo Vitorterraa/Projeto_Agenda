@@ -64,5 +64,6 @@ namespace ProjetoAgenda.View
 
             dgvCategoria.DataSource = tabela;
         }
-    }
+
+    }  
 }

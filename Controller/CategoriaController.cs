@@ -2,6 +2,7 @@
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -17,19 +18,19 @@ namespace ProjetoAgenda.Controller
             try
             {
                 conexao = ConexaoDB.CriarConexao();
-                
+
 
                 string sql = "INSERT INTO tbcategoria (categoria) values (@categoria);";
 
                 conexao.Open();
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
-                
+
                 comando.Parameters.AddWithValue("@categoria", categoria);
-                
+
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
-                
+
 
                 if (linhasAfetadas > 0)
                 {
@@ -41,7 +42,7 @@ namespace ProjetoAgenda.Controller
                     return false;
                 }
 
-                
+
 
             }
 
@@ -79,7 +80,7 @@ namespace ProjetoAgenda.Controller
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
 
                 //criei apenas a tabela, vazia
-                DataTable tabela = new DataTable(); 
+                DataTable tabela = new DataTable();
 
                 //o adaptador vai preencher a tabela com os dados
                 adaptador.Fill(tabela);
@@ -89,6 +90,14 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 MessageBox.Show($"Erro ao recuperar categorias {erro.Message}");
+
+                return new DataTable();
+
+
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
     }

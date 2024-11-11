@@ -32,9 +32,9 @@
             groupBox1 = new GroupBox();
             button1 = new Button();
             txtNomeCategoria = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgvCategoria = new DataGridView();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -68,27 +68,27 @@
             txtNomeCategoria.TabIndex = 0;
             txtNomeCategoria.TextChanged += textBox1_TextChanged;
             // 
-            // dataGridView1
+            // dgvCategoria
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(394, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(326, 154);
-            dataGridView1.TabIndex = 1;
+            dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategoria.Location = new Point(394, 12);
+            dgvCategoria.Name = "dgvCategoria";
+            dgvCategoria.Size = new Size(326, 154);
+            dgvCategoria.TabIndex = 1;
             // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(844, 229);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCategoria";
             Text = "frmCategoria";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);
         }
 
@@ -97,6 +97,6 @@
         private GroupBox groupBox1;
         private Button button1;
         private TextBox txtNomeCategoria;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCategoria;
     }
 }
