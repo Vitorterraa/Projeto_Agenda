@@ -35,6 +35,8 @@
             button2 = new Button();
             button1 = new Button();
             txtNomeCategoria = new TextBox();
+            dgvCategoria = new DataGridView();
+            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -55,12 +57,10 @@
             groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(txtNomeCategoria);
-            groupBox1.Location = new Point(48, 20);
-            groupBox1.Margin = new Padding(4, 5, 4, 5);
+            groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 5, 4, 5);
-            groupBox1.Size = new Size(467, 346);
-            groupBox1.TabIndex = 2;
+            groupBox1.Size = new Size(327, 154);
+            groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Insira o nome da nova categoria";
             // 
@@ -84,6 +84,28 @@
             button2.Text = "Excluir";
             button2.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(button2);
+            groupBox2.Location = new Point(1, 201);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(467, 145);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Selecione na tabela a categoria que deseja excluir";
+            groupBox2.Enter += groupBox2_Enter;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(29, 53);
+            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.Name = "button2";
+            button2.Size = new Size(404, 63);
+            button2.TabIndex = 3;
+            button2.Text = "Excluir";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
             // button1
             // 
             button1.Location = new Point(29, 130);
@@ -102,23 +124,30 @@
             txtNomeCategoria.Name = "txtNomeCategoria";
             txtNomeCategoria.Size = new Size(403, 52);
             txtNomeCategoria.TabIndex = 0;
+            txtNomeCategoria.TextChanged += textBox1_TextChanged;
+            // 
+            // dgvCategoria
+            // 
+            dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategoria.Location = new Point(394, 12);
+            dgvCategoria.Name = "dgvCategoria";
+            dgvCategoria.Size = new Size(326, 154);
+            dgvCategoria.TabIndex = 1;
             // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.sao_paulo_fundo2;
-            ClientSize = new Size(1206, 382);
-            Controls.Add(groupBox1);
+            ClientSize = new Size(844, 229);
             Controls.Add(dgvCategoria);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             Name = "frmCategoria";
             Text = "frmCategoria";
-            ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);
         }
 
@@ -129,5 +158,6 @@
         private Button button2;
         private Button button1;
         private TextBox txtNomeCategoria;
+        private DataGridView dgvCategoria;
     }
 }
