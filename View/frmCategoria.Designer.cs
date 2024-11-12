@@ -49,7 +49,7 @@
             groupBox1.Margin = new Padding(4, 5, 4, 5);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 5, 4, 5);
-            groupBox1.Size = new Size(467, 523);
+            groupBox1.Size = new Size(467, 346);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Insira o nome da nova categoria";
@@ -58,17 +58,17 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(button2);
-            groupBox2.Location = new Point(0, 238);
+            groupBox2.Location = new Point(1, 201);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(467, 285);
+            groupBox2.Size = new Size(467, 145);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Insira o número do ID que você deseja excluir";
+            groupBox2.Text = "Selecione na tabela a categoria que deseja excluir";
             groupBox2.Enter += groupBox2_Enter;
             // 
             // button2
             // 
-            button2.Location = new Point(31, 151);
+            button2.Location = new Point(29, 53);
             button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
             button2.Size = new Size(404, 63);
@@ -106,7 +106,7 @@
             dgvCategoria.Name = "dgvCategoria";
             dgvCategoria.RowHeadersWidth = 62;
             dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategoria.Size = new Size(588, 523);
+            dgvCategoria.Size = new Size(588, 346);
             dgvCategoria.TabIndex = 1;
             // 
             // frmCategoria
@@ -114,7 +114,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.sao_paulo_fundo2;
-            ClientSize = new Size(1093, 616);
+            ClientSize = new Size(1093, 389);
             Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
