@@ -50,6 +50,8 @@
             dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(588, 346);
             dgvCategoria.TabIndex = 1;
+            dgvCategoria.CellContentClick += dgvCategoria_CellContentClick;
+            dgvCategoria.SelectionChanged += dgvCategoria_SelectionChanged;
             // 
             // groupBox1
             // 

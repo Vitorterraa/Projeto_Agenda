@@ -46,6 +46,12 @@ namespace ProjetoAgenda
 
         private void excluirUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmAltUsuario formularioUsuario = new frmAltUsuario();
+            formularioUsuario.ShowDialog();
+        }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
     }

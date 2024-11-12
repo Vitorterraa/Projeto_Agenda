@@ -84,28 +84,24 @@ namespace ProjetoAgenda.View
 
             int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
 
-
-
             CategoriaController controleUsuario = new CategoriaController();
 
             bool resultado = controleUsuario.ExCategoria(codigo);
 
-                if (resultado == true)
-                {
-                    MessageBox.Show("Exclusão efetuada com sucesso!!");
-                    CategoriaController controleCategoria = new CategoriaController();
-                    DataTable tabela = controleCategoria.GetCategorias();
-                    dgvCategoria.DataSource= tabela;
+            if (resultado == true)
+            {
+                MessageBox.Show("Exclusão efetuada com sucesso!!");
+                AtualizaDataGrid();
 
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao excluir sua categoria");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Erro ao excluir sua categoria");
+            }
 
 
 
-                
+
 
 
 
@@ -119,6 +115,16 @@ namespace ProjetoAgenda.View
             dgvCategoria.DataSource = tabela;
 
             AtualizaDataGrid();
+        }
+
+        private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvCategoria_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

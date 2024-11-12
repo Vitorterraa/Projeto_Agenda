@@ -28,21 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvCategoria = new DataGridView();
+            dgvUsuario = new DataGridView();
             button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
+            textBox1 = new TextBox();
+            groupBox1 = new GroupBox();
+            btnAlterar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuario).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // dgvCategoria
+            // dgvUsuario
             // 
-            dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoria.Location = new Point(37, 14);
-            dgvCategoria.Margin = new Padding(4, 5, 4, 5);
-            dgvCategoria.Name = "dgvCategoria";
-            dgvCategoria.RowHeadersWidth = 62;
-            dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategoria.Size = new Size(456, 284);
-            dgvCategoria.TabIndex = 2;
+            dgvUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsuario.Location = new Point(37, 14);
+            dgvUsuario.Margin = new Padding(4, 5, 4, 5);
+            dgvUsuario.Name = "dgvUsuario";
+            dgvUsuario.RowHeadersWidth = 62;
+            dgvUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsuario.Size = new Size(456, 284);
+            dgvUsuario.TabIndex = 2;
+            dgvUsuario.CellContentClick += dgvCategoria_CellContentClick;
             // 
             // button1
             // 
@@ -52,6 +57,35 @@
             button1.TabIndex = 3;
             button1.Text = "Excluir";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(6, 42);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(358, 53);
+            textBox1.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(btnAlterar);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Location = new Point(597, 32);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(370, 180);
+            groupBox1.TabIndex = 5;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Altere a senha";
+            // 
+            // btnAlterar
+            // 
+            btnAlterar.Location = new Point(6, 101);
+            btnAlterar.Name = "btnAlterar";
+            btnAlterar.Size = new Size(358, 43);
+            btnAlterar.TabIndex = 5;
+            btnAlterar.Text = "Alterar";
+            btnAlterar.UseVisualStyleBackColor = true;
             // 
             // frmAltUsuario
             // 
@@ -59,16 +93,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1023, 411);
             Controls.Add(button1);
-            Controls.Add(dgvCategoria);
+            Controls.Add(dgvUsuario);
+            Controls.Add(groupBox1);
             Name = "frmAltUsuario";
             Text = "frmAltUsuario";
-            ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
+            Load += frmAltUsuario_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvUsuario).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvCategoria;
+        private DataGridView dgvUsuario;
         private Button button1;
+        private TextBox textBox1;
+        private GroupBox groupBox1;
+        private Button btnAlterar;
     }
 }

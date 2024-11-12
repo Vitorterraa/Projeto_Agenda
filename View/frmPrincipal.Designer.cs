@@ -78,11 +78,12 @@
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             cadastrarToolStripMenuItem.Size = new Size(270, 34);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
+            cadastrarToolStripMenuItem.Click += cadastrarToolStripMenuItem_Click;
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(198, 34);
+            categoriasToolStripMenuItem.Size = new Size(270, 34);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
