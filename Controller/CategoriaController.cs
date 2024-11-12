@@ -100,5 +100,54 @@ namespace ProjetoAgenda.Controller
                 conexao.Close();
             }
         }
+
+        public bool ExCategoria(int id_categoria)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao();
+
+
+                string sql = @"delete from tbcategoria
+                                where id_categoria = @id_categoria;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+
+
+                if (linhasAfetadas > 0)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao efetuar a exclusão: {erro.Message}");
+                return false;
+            }
+
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
     }
 }
