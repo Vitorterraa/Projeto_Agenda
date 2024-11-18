@@ -19,9 +19,13 @@ namespace ProjetoAgenda.Controller
 
                 string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) values (@nome,  @usuario, @telefone, @senha);";
 
-                conexao.Open();
+                string sql2 = $"create user '{usuario}'@'localhost' identified by '{senha}'; grant all privileges on dbagenda.* to '{usuario}'@'localhost'; flush privileges;";
+
+                conexao.Open();                
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                MySqlCommand comando2 = new MySqlCommand(sql2, conexao);
 
 
                 comando.Parameters.AddWithValue("@nome", nome);
@@ -30,6 +34,8 @@ namespace ProjetoAgenda.Controller
                 comando.Parameters.AddWithValue("@senha", senha);
 
                 int linhasAfetadas = comando.ExecuteNonQuery();
+
+                int linhas = comando2.ExecuteNonQuery();
 
                 conexao.Close();
 

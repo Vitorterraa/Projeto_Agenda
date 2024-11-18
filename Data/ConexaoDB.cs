@@ -19,5 +19,16 @@ namespace ProjetoAgenda.Data
 
             return conexao;
         }
+
+        static public MySqlConnection CriarConexao(string usuario, string senha)
+        {
+            // string contendo as iformações para conexão
+            string stringConexao = $"server=localhost;Database=dbAgenda;User ID={usuario};Password={senha};";
+
+            //Criando a conexão
+            MySqlConnection conexao = new MySqlConnection(stringConexao);
+
+            return conexao;
+        }
     }
 }
