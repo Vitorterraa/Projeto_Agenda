@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjetoAgenda.VariableGlobal;
 
 namespace ProjetoAgenda.Controller
 {
@@ -19,19 +20,44 @@ namespace ProjetoAgenda.Controller
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MySqlConnection conexao = ConexaoDB.CriarConexao("Arceus", "123");
-                conexao.Open();
+            UserSession.usuario = textBox1.Text;
+        }
 
-                MessageBox.Show("Deu certo!!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Não consegui conectar");
-            }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show(UserSession.usuario);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UserSession.nome = textBox2.Text;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(UserSession.nome);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(UserSession.senha);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            UserSession.senha = textBox3.Text;
         }
     }
 }
