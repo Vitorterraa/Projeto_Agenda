@@ -12,11 +12,3 @@ id_categoria int auto_increment primary key,
 categoria varchar (50) not null
 );
 
-
-
-
-
-
-
-    
-	

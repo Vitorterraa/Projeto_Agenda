@@ -1,5 +1,6 @@
 ﻿using MySqlConnector;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,7 +18,7 @@ namespace ProjetoAgenda.Controller
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
 
                 string sql = "INSERT INTO tbcategoria (categoria) values (@categoria);";
