@@ -99,12 +99,6 @@ namespace ProjetoAgenda.View
                 MessageBox.Show("Erro ao excluir sua categoria");
             }
 
-
-
-
-
-
-
         }
 
         private void frmCategoria_Load_1(object sender, EventArgs e)
@@ -126,5 +120,27 @@ namespace ProjetoAgenda.View
         {
 
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            int codigo2 = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+
+            CategoriaController controleUsuario = new CategoriaController();
+
+            bool resultado = controleUsuario.ExCategoria(codigo2);
+
+            if (resultado == true)
+            {
+                MessageBox.Show("Exclusão efetuada com sucesso!!");
+                AtualizaDataGrid();
+
+            }
+            else
+            {
+                MessageBox.Show("Erro ao excluir sua categoria");
+            }
+
+        }
+    }
     }
 }
