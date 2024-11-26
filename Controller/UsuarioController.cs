@@ -1,5 +1,6 @@
 ﻿using MySqlConnector;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,13 +20,13 @@ namespace ProjetoAgenda.Controller
 
                 string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) values (@nome,  @usuario, @telefone, @senha);";
 
-                string sql2 = $"create user '{usuario}'@'localhost' identified by '{senha}'; grant all privileges on dbagenda.* to '{usuario}'@'localhost'; flush privileges;";
+                
 
                 conexao.Open();                
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
-                MySqlCommand comando2 = new MySqlCommand(sql2, conexao);
+                
 
 
                 comando.Parameters.AddWithValue("@nome", nome);
@@ -35,13 +36,17 @@ namespace ProjetoAgenda.Controller
 
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
-                int linhas = comando2.ExecuteNonQuery();
+                int linhas = comando.ExecuteNonQuery();
 
                 conexao.Close();
 
                 if (linhasAfetadas > 0)
                 {
-                    
+                    string sql2 = $"create user '{usuario}'@'localhost' identified by '{senha}'; grant all privileges on dbagenda.* to '{usuario}'@'localhost'; flush privileges;";
+                    MySqlCommand comando2 = new MySqlCommand(sql2, conexao);
+                    comando = new MySqlCommand(sql2, conexao);
+
+                    linhasAfetadas = comando.ExecuteNonQuery();
                     return true;
                 }
                 else 
@@ -65,7 +70,7 @@ namespace ProjetoAgenda.Controller
             {
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-                string sql = @"select * from tbusuarios
+                string sql = @"select usuario, senha, nome, telefone from tbusuarios
                                 where usuario = @usuario 
                                 and binary senha  = @senha;";
 
@@ -85,6 +90,8 @@ namespace ProjetoAgenda.Controller
 
                 if (resultado.Read())
                 {
+                    UserSession.usuario = resultado.GetString(0);
+                    conexao.Close();
                     return true;
                 }
                 else

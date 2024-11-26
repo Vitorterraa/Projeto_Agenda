@@ -123,22 +123,13 @@ namespace ProjetoAgenda.View
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int codigo2 = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            int categoria = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            CategoriaController alterarcategoria = new CategoriaController();
+            alterarcategoria.AltCategoria(txtNomeCategoria.Text, categoria);
 
-            CategoriaController controleUsuario = new CategoriaController();
-
-            bool resultado = controleUsuario.ExCategoria(codigo2);
-
-            if (resultado == true)
-            {
-                MessageBox.Show("Exclusão efetuada com sucesso!!");
-                AtualizaDataGrid();
-
-            }
-            else
-            {
-                MessageBox.Show("Erro ao excluir sua categoria");
-            }
+            CategoriaController controleCategoria = new CategoriaController();
+            DataTable tabela = controleCategoria.GetCategorias();
+            dgvCategoria.DataSource = tabela;
 
         }
     }

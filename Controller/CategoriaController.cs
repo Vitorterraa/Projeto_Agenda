@@ -21,7 +21,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
 
-                string sql = "INSERT INTO tbcategoria (categoria) values (@categoria);";
+                string sql = "INSERT INTO tbcategoria (categoria) values (@categoria, @usuario);";
 
                 conexao.Open();
 
@@ -117,6 +117,55 @@ namespace ProjetoAgenda.Controller
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
+                comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+
+
+                if (linhasAfetadas > 0)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao efetuar a exclusão: {erro.Message}");
+                return false;
+            }
+
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
+        public bool AltCategoria(string categoria, int id_categoria)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao();
+
+
+                string sql = @"update tbcategoria set categoria where id_categoria
+                                where id_categoria = @id_categoria;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@categoria", categoria);
                 comando.Parameters.AddWithValue("@id_categoria", id_categoria);
 
                 int linhasAfetadas = comando.ExecuteNonQuery();
