@@ -18,12 +18,16 @@ namespace ProjetoAgenda.Controller
             MySqlConnection conexao = null;
             try
             {
+
+                
+
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
+                conexao.Open();
 
                 string sql = "INSERT INTO tbcategoria (categoria) values (@categoria, @usuario);";
 
-                conexao.Open();
+                
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
@@ -35,14 +39,14 @@ namespace ProjetoAgenda.Controller
 
                 if (linhasAfetadas > 0)
                 {
-
+                    conexao.Close();
                     return true;
                 }
                 else
                 {
                     return false;
                 }
-
+                
 
 
             }
@@ -70,9 +74,10 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao();
 
                 //comando sql para retornar os dados da tabela
-                string sql = @"select id_categoria as 'Código',
+                string sql = @$"select id_categoria as 'Código',
                                 categoria as 'Categoria'
-                                from tbcategoria;";
+                                from tbcategoria;
+                                where usuario like '{UserSession.usuario}@%';";
 
 
                 //abri a conexao

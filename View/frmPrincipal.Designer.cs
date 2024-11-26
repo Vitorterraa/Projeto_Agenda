@@ -36,9 +36,10 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             excluirUsuárioToolStripMenuItem = new ToolStripMenuItem();
+            agendaToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             lblSejaBemVindo = new Label();
-            agendaToolStripMenuItem = new ToolStripMenuItem();
+            alterarSenhaUsuárioToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             // editarToolStripMenuItem
             // 
-            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, excluirUsuárioToolStripMenuItem });
+            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, excluirUsuárioToolStripMenuItem, alterarSenhaUsuárioToolStripMenuItem });
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "Editar";
@@ -79,7 +80,7 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem.Size = new Size(185, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarToolStripMenuItem_Click;
             // 
@@ -93,9 +94,16 @@
             // excluirUsuárioToolStripMenuItem
             // 
             excluirUsuárioToolStripMenuItem.Name = "excluirUsuárioToolStripMenuItem";
-            excluirUsuárioToolStripMenuItem.Size = new Size(180, 22);
+            excluirUsuárioToolStripMenuItem.Size = new Size(185, 22);
             excluirUsuárioToolStripMenuItem.Text = "Excluir Usuário";
             excluirUsuárioToolStripMenuItem.Click += excluirUsuárioToolStripMenuItem_Click;
+            // 
+            // agendaToolStripMenuItem
+            // 
+            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
+            agendaToolStripMenuItem.Size = new Size(60, 20);
+            agendaToolStripMenuItem.Text = "Agenda";
+            agendaToolStripMenuItem.Click += agendaToolStripMenuItem_Click;
             // 
             // lblSejaBemVindo
             // 
@@ -108,12 +116,12 @@
             lblSejaBemVindo.TabIndex = 1;
             lblSejaBemVindo.Text = "label";
             // 
-            // agendaToolStripMenuItem
+            // alterarSenhaUsuárioToolStripMenuItem
             // 
-            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
-            agendaToolStripMenuItem.Size = new Size(60, 20);
-            agendaToolStripMenuItem.Text = "Agenda";
-            agendaToolStripMenuItem.Click += agendaToolStripMenuItem_Click;
+            alterarSenhaUsuárioToolStripMenuItem.Name = "alterarSenhaUsuárioToolStripMenuItem";
+            alterarSenhaUsuárioToolStripMenuItem.Size = new Size(185, 22);
+            alterarSenhaUsuárioToolStripMenuItem.Text = "Alterar senha usuário";
+            alterarSenhaUsuárioToolStripMenuItem.Click += alterarSenhaUsuárioToolStripMenuItem_Click;
             // 
             // frmPrincipal
             // 
@@ -146,5 +154,6 @@
         private SaveFileDialog saveFileDialog1;
         private Label lblSejaBemVindo;
         private ToolStripMenuItem agendaToolStripMenuItem;
+        private ToolStripMenuItem alterarSenhaUsuárioToolStripMenuItem;
     }
 }

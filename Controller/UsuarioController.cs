@@ -54,7 +54,7 @@ namespace ProjetoAgenda.Controller
                     return false; 
                 }
 
-                conexao.Close();
+               
 
             }
 
@@ -88,13 +88,13 @@ namespace ProjetoAgenda.Controller
 
                 MySqlDataReader resultado = comando.ExecuteReader();
 
-                
 
+                conexao.Close();
                 if (resultado.Read())
                 {
                     UserSession.usuario = resultado.GetString(0);
                     UserSession.senha = resultado.GetString(1);
-                    conexao.Close();
+                    
                     return true;
                 }
                 else
@@ -121,7 +121,8 @@ namespace ProjetoAgenda.Controller
                 string sql = @"select usuario as 'Usuário',
                                 nome as 'Nome',
                                 telefone as 'Telefone'
-                                from tbusuarios;";
+                                from tbusuarios
+                                ";
 
                 //abri a conexao
                 conexao.Open();

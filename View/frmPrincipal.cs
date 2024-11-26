@@ -61,5 +61,11 @@ namespace ProjetoAgenda
             frmAgenda formularioAgenda = new frmAgenda();
             formularioAgenda.ShowDialog();
         }
+
+        private void alterarSenhaUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltUsuario formularioAlterarSenha = new frmAltUsuario();
+            formularioAlterarSenha.ShowDialog();
+        }
     }
 }
