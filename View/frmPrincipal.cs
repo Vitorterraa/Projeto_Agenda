@@ -16,6 +16,7 @@ namespace ProjetoAgenda
         public frmPrincipal()
         {
             InitializeComponent();
+            lblSejaBemVindo.Text = $"Seja bem vindo {VariableGlobal.UserSession.Nome}";
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -53,6 +54,12 @@ namespace ProjetoAgenda
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgenda formularioAgenda = new frmAgenda();
+            formularioAgenda.ShowDialog();
         }
     }
 }

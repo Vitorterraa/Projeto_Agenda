@@ -42,12 +42,12 @@ namespace ProjetoAgenda.Controller
 
         private void button3_Click(object sender, EventArgs e)
         {
-            UserSession.nome = textBox2.Text;
+            UserSession.Nome = textBox2.Text;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(UserSession.nome);
+            MessageBox.Show(UserSession.Nome);
         }
 
         private void button6_Click(object sender, EventArgs e)

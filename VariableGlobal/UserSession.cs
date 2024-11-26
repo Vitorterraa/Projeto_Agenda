@@ -23,16 +23,15 @@ namespace ProjetoAgenda.VariableGlobal
             get { return _usuario;}
             set 
             {
-                value = value.ToUpper();
+                //value = value.ToUpper();
                 _usuario = value; 
             }
         }
-        public static string nome
+        public static string Nome
         {
             get { return _nome; }
             set
             {
-                value = value.ToUpper();
                 _nome = value;
             }
         }

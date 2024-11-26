@@ -36,14 +36,14 @@ namespace ProjetoAgenda.Controller
 
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
-                int linhas = comando.ExecuteNonQuery();
+                
 
                 conexao.Close();
 
                 if (linhasAfetadas > 0)
                 {
-                    string sql2 = $"create user '{usuario}'@'localhost' identified by '{senha}'; grant all privileges on dbagenda.* to '{usuario}'@'localhost'; flush privileges;";
-                    MySqlCommand comando2 = new MySqlCommand(sql2, conexao);
+                    string sql2 = $"create user '{usuario}'@'%' identified by '{senha}'; \r\ngrant all privileges on dbagenda.* to '{usuario}'@'%';\r\nflush privileges;";
+                    
                     comando = new MySqlCommand(sql2, conexao);
 
                     linhasAfetadas = comando.ExecuteNonQuery();
@@ -53,6 +53,8 @@ namespace ProjetoAgenda.Controller
                 { 
                     return false; 
                 }
+
+                conexao.Close();
 
             }
 
@@ -91,6 +93,7 @@ namespace ProjetoAgenda.Controller
                 if (resultado.Read())
                 {
                     UserSession.usuario = resultado.GetString(0);
+                    UserSession.senha = resultado.GetString(1);
                     conexao.Close();
                     return true;
                 }

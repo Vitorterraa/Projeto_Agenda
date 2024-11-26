@@ -158,7 +158,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao();
 
 
-                string sql = @"update tbcategoria set categoria where id_categoria
+                string sql = @"update tbcategoria set categoria = @categoria
                                 where id_categoria = @id_categoria;";
 
                 conexao.Open();
