@@ -9,7 +9,8 @@ senha varchar (20) not null
 
 create table tbcategoria (
 id_categoria int auto_increment primary key,
-categoria varchar (50) not null
+categoria varchar (50) not null,
+usuario varchar (50) not null
 );
 
 delimiter $$
@@ -39,47 +40,11 @@ on tbcategoria
 for each row
 begin
 	insert into tblog
-    (usuario, data, descricao)
+    (usuario, dataehora, descricao)
     values
     (user(),
     current_timestamp(),
     concat('A categoria', old.categoria, 'foi excluída')
-    );
-end;
-$$
-
-
-delimiter $$
-create trigger trLogUpdateCategoria
-after
-update
-on tbcategoria
-for each row
-begin
-	insert into tblog
-    (usuario, data, descricao)
-    values
-    (user(),
-    current_timestamp(),
-    concat('A categoria', new.categoria, 'foi alterada')
-    );
-end;
-$$
-
-
-delimiter $$
-create trigger trLogInsertCategoria
-after
-insert
-on tbcategoria
-for each row
-begin
-	insert into tblog
-    (usuario, data, descricao)
-    values
-    (user(),
-    current_timestamp(),
-    concat('A categoria', new.categoria, 'foi inserida')
     );
 end;
 $$
