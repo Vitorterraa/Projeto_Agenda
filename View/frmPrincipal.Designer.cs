@@ -79,21 +79,21 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem.Size = new Size(152, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarToolStripMenuItem_Click;
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(130, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
             // excluirUsuárioToolStripMenuItem
             // 
             excluirUsuárioToolStripMenuItem.Name = "excluirUsuárioToolStripMenuItem";
-            excluirUsuárioToolStripMenuItem.Size = new Size(180, 22);
+            excluirUsuárioToolStripMenuItem.Size = new Size(152, 22);
             excluirUsuárioToolStripMenuItem.Text = "Excluir Usuário";
             excluirUsuárioToolStripMenuItem.Click += excluirUsuárioToolStripMenuItem_Click;
             // 
@@ -130,6 +130,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmPrincipal";
             Text = "frmPrincipal";
+            FormClosed += frmPrincipal_FormClosed;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

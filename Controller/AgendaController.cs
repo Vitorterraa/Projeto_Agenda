@@ -80,9 +80,11 @@ namespace ProjetoAgenda.Controller
 
                 //comando sql para retornar os dados da tabela
                 string sql = @$"select id_contato as 'Código',
+                                contato as 'Contato',
+                                telefone as 'Telefone',
                                 categoria as 'Categoria'
-                                from tbcategoria;
-                                where usuario like '{UserSession.usuario}@%';";
+                                from tbcontato;
+                                where contato like '{UserSession.usuario}@%';";
 
 
                 //abri a conexao
@@ -110,6 +112,53 @@ namespace ProjetoAgenda.Controller
             {
                 conexao.Close();
             }
+        }
+        public bool ExContato(int id_contato)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
+
+
+                string sql = @"delete from tbcontato
+                                where id_contato = @id_contato;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@id_contato", id_contato);
+
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+
+
+                if (linhasAfetadas > 0)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao efetuar a exclusão: {erro.Message}");
+                return false;
+            }
+
+            finally
+            {
+                conexao.Close();
+            }
+
         }
     }
 }

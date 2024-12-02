@@ -30,6 +30,7 @@
         {
             dgvAgenda = new DataGridView();
             groupBox1 = new GroupBox();
+            txtCategoria = new TextBox();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -38,7 +39,6 @@
             txtTelefone = new TextBox();
             label1 = new Label();
             txtContato = new TextBox();
-            txtCategoria = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvAgenda).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -50,6 +50,7 @@
             dgvAgenda.Name = "dgvAgenda";
             dgvAgenda.Size = new Size(382, 426);
             dgvAgenda.TabIndex = 0;
+            dgvAgenda.CellContentClick += dgvAgenda_CellContentClick;
             // 
             // groupBox1
             // 
@@ -69,6 +70,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Criar contato";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // txtCategoria
+            // 
+            txtCategoria.Location = new Point(6, 196);
+            txtCategoria.Multiline = true;
+            txtCategoria.Name = "txtCategoria";
+            txtCategoria.Size = new Size(274, 30);
+            txtCategoria.TabIndex = 9;
             // 
             // button3
             // 
@@ -147,14 +156,6 @@
             txtContato.Name = "txtContato";
             txtContato.Size = new Size(274, 30);
             txtContato.TabIndex = 0;
-            // 
-            // txtCategoria
-            // 
-            txtCategoria.Location = new Point(6, 196);
-            txtCategoria.Multiline = true;
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(274, 30);
-            txtCategoria.TabIndex = 9;
             // 
             // frmAgenda
             // 

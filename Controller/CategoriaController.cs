@@ -72,13 +72,12 @@ namespace ProjetoAgenda.Controller
             try
             {
                 //cria a conexao,usei classe ConexaoDB
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //comando sql para retornar os dados da tabela
                 string sql = @$"select id_categoria as 'Código',
-                                categoria as 'Categoria'
-                                from tbcategoria;
-                                where usuario like '{UserSession.usuario}@%';";
+                                categoria as 'Categoria', usuario
+                                from tbcategoria where usuario = User()";
 
 
                 //abri a conexao
