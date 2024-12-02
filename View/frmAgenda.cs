@@ -19,7 +19,7 @@ namespace ProjetoAgenda.View
         }
         private void AtualizaDataGrid()
         {
-            
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -43,7 +43,34 @@ namespace ProjetoAgenda.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string contato = txtContato.Text;
+
+            string telefone = txtTelefone.Text;
+
+            string categoria = txtCategoria.Text;
+
+            AgendaController controleAgenda = new AgendaController();
+
+            bool resultado = controleAgenda.AddContato(contato, telefone, categoria);
+
+            if (resultado == true)
+            {
+                MessageBox.Show("Cadastro efetuado com sucesso!!");
+            }
+            else
+            {
+                MessageBox.Show("Erro ao efetuar seu cadastro");
+            }
+
+
+            DataTable tabela = controleCategoria.GetCategorias();
+
+            dgvAgenda.DataSource = tabela;
         }
     }
 }

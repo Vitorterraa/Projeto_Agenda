@@ -46,7 +46,7 @@ namespace ProjetoAgenda.Controller
                     
                     string sql2 = $"create user '{usuario}'@'%' identified by '{senha}'; \r\ngrant all privileges on dbagenda.* to '{usuario}'@'%';\r\nflush privileges;";
                     
-                    comando = new MySqlCommand(sql, conexao);
+                    comando = new MySqlCommand(sql2, conexao);
 
                     linhasAfetadas = comando.ExecuteNonQuery();
                     return true;
@@ -76,9 +76,10 @@ namespace ProjetoAgenda.Controller
 
         public bool LogarUsuario(string usuario, string senha)
         {
+            MySqlConnection conexao = null;
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao();
 
                 string sql = @"select usuario, senha, nome, telefone from tbusuarios
                                 where usuario = @usuario 

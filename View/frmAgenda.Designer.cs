@@ -30,7 +30,6 @@
         {
             dgvAgenda = new DataGridView();
             groupBox1 = new GroupBox();
-            cmbCategoria = new ComboBox();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -39,6 +38,7 @@
             txtTelefone = new TextBox();
             label1 = new Label();
             txtContato = new TextBox();
+            txtCategoria = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvAgenda).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -53,7 +53,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(cmbCategoria);
+            groupBox1.Controls.Add(txtCategoria);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
@@ -69,15 +69,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Criar contato";
             groupBox1.Enter += groupBox1_Enter;
-            // 
-            // cmbCategoria
-            // 
-            cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Location = new Point(6, 205);
-            cmbCategoria.Name = "cmbCategoria";
-            cmbCategoria.Size = new Size(274, 23);
-            cmbCategoria.TabIndex = 9;
-            cmbCategoria.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // button3
             // 
@@ -109,6 +100,7 @@
             button1.TabIndex = 6;
             button1.Text = "Cadastrar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label3
             // 
@@ -156,6 +148,14 @@
             txtContato.Size = new Size(274, 30);
             txtContato.TabIndex = 0;
             // 
+            // txtCategoria
+            // 
+            txtCategoria.Location = new Point(6, 196);
+            txtCategoria.Multiline = true;
+            txtCategoria.Name = "txtCategoria";
+            txtCategoria.Size = new Size(274, 30);
+            txtCategoria.TabIndex = 9;
+            // 
             // frmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -185,6 +185,6 @@
         private TextBox txtTelefone;
         private Label label1;
         private TextBox txtContato;
-        private ComboBox cmbCategoria;
+        private TextBox txtCategoria;
     }
 }

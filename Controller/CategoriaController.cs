@@ -161,7 +161,7 @@ namespace ProjetoAgenda.Controller
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
+                conexao = ConexaoDB.CriarConexao();
 
 
                 string sql = @"update tbcategoria set categoria = @categoria

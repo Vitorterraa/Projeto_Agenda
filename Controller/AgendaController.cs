@@ -3,6 +3,7 @@ using ProjetoAgenda.Data;
 using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,49 @@ namespace ProjetoAgenda.Controller
                 conexao.Close();
             }
 
+        }
+
+        public DataTable GetContatos()
+        {
+            MySqlConnection conexao = null;
+
+            try
+            {
+                //cria a conexao,usei classe ConexaoDB
+                conexao = ConexaoDB.CriarConexao();
+
+                //comando sql para retornar os dados da tabela
+                string sql = @$"select id_contato as 'Código',
+                                categoria as 'Categoria'
+                                from tbcategoria;
+                                where usuario like '{UserSession.usuario}@%';";
+
+
+                //abri a conexao
+                conexao.Open();
+
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
+
+                //criei apenas a tabela, vazia
+                DataTable tabela = new DataTable();
+
+                //o adaptador vai preencher a tabela com os dados
+                adaptador.Fill(tabela);
+
+                return tabela;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar categorias {erro.Message}");
+
+                return new DataTable();
+
+
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
     }
 }

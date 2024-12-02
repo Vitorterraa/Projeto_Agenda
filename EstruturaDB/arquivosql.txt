@@ -13,52 +13,14 @@ categoria varchar (50) not null,
 usuario varchar (50) not null
 );
 
-delimiter $$
-create trigger trInsertCategoria
-BEFORE 
-INSERT
-ON tbcategoria
-FOR EACH ROW
-BEGIN
-SET NEW.usuario = current_user();
-END;
-$$
-
 create table tblog (
 id_log int auto_increment primary key,
 usuario varchar (40),
-dataehora timestamp not null,
+datahora timestamp not null,
 descricao varchar (70)
 ); 
 
-delimiter $$
 
-create trigger trLogDeleteCategoria
-after
-delete
-on tbcategoria
-for each row
-begin
-	insert into tblog
-    (usuario, dataehora, descricao)
-    values
-    (user(),
-    current_timestamp(),
-    concat('A categoria', old.categoria, 'foi excluída')
-    );
-end;
-$$
-delimiter ;
-
-?
-delimiter ;
-
-create table tblog(
-id_log int primary key auto_increment,
-usuario varchar(20),
-datahora timestamp ,
-descricao varchar(50)
-);
 
 delimiter $$
 create trigger trLogDeleteCategoria
@@ -68,17 +30,18 @@ on tbcategoria
 for each row
 begin
 insert into tblog
-??????(usuario,
-??????datahora,
-??????descricao)
+(usuario,
+datahora,
+descricao)
 values 
-????????????(user(),
-        current_timestamp(),
-        concat('A categoria ', old.categoria, ' foi exlcuida')
+(user(),
+current_timestamp(),
+concat('A categoria ' ,  old.categoria , ' foi exlcuida')
         );
 end;
 $$
 
+delimiter ; 
 
 delimiter $$
 create trigger trLogAlteraCategoria
@@ -99,7 +62,7 @@ concat('A categoria ', old.categoria, ' foi alterada', ' para ', new.categoria)
 end;
 $$
 
-
+delimiter ;
 
 delimiter $$
 create trigger trInsertCategoria
@@ -111,7 +74,7 @@ BEGIN
 SET NEW.usuario = current_user();
 END;
 $$
-
+delimiter ;
 
 create table tbcontato (
 id_contato int auto_increment primary key,
@@ -119,6 +82,12 @@ contato varchar (40),
 telefone timestamp not null,
 categoria varchar (70)
 ); 
+
+
+select * from tblog;
+
+
+
 
 
 

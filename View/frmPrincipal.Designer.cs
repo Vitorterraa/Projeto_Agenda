@@ -36,7 +36,6 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             excluirUsuárioToolStripMenuItem = new ToolStripMenuItem();
-            alterarSenhaUsuárioToolStripMenuItem = new ToolStripMenuItem();
             agendaToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             lblSejaBemVindo = new Label();
@@ -71,7 +70,7 @@
             // 
             // editarToolStripMenuItem
             // 
-            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, excluirUsuárioToolStripMenuItem, alterarSenhaUsuárioToolStripMenuItem });
+            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, excluirUsuárioToolStripMenuItem });
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "Editar";
@@ -80,30 +79,23 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(185, 22);
+            cadastrarToolStripMenuItem.Size = new Size(180, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarToolStripMenuItem_Click;
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(130, 22);
+            categoriasToolStripMenuItem.Size = new Size(180, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
             // excluirUsuárioToolStripMenuItem
             // 
             excluirUsuárioToolStripMenuItem.Name = "excluirUsuárioToolStripMenuItem";
-            excluirUsuárioToolStripMenuItem.Size = new Size(185, 22);
+            excluirUsuárioToolStripMenuItem.Size = new Size(180, 22);
             excluirUsuárioToolStripMenuItem.Text = "Excluir Usuário";
             excluirUsuárioToolStripMenuItem.Click += excluirUsuárioToolStripMenuItem_Click;
-            // 
-            // alterarSenhaUsuárioToolStripMenuItem
-            // 
-            alterarSenhaUsuárioToolStripMenuItem.Name = "alterarSenhaUsuárioToolStripMenuItem";
-            alterarSenhaUsuárioToolStripMenuItem.Size = new Size(185, 22);
-            alterarSenhaUsuárioToolStripMenuItem.Text = "Alterar senha usuário";
-            alterarSenhaUsuárioToolStripMenuItem.Click += alterarSenhaUsuárioToolStripMenuItem_Click;
             // 
             // agendaToolStripMenuItem
             // 
@@ -115,13 +107,14 @@
             // lblSejaBemVindo
             // 
             lblSejaBemVindo.AutoSize = true;
-            lblSejaBemVindo.Font = new Font("Segoe UI", 20F);
+            lblSejaBemVindo.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblSejaBemVindo.ForeColor = Color.Fuchsia;
-            lblSejaBemVindo.Location = new Point(398, 105);
+            lblSejaBemVindo.Location = new Point(375, 86);
             lblSejaBemVindo.Name = "lblSejaBemVindo";
-            lblSejaBemVindo.Size = new Size(75, 37);
+            lblSejaBemVindo.Size = new Size(76, 38);
             lblSejaBemVindo.TabIndex = 1;
             lblSejaBemVindo.Text = "label";
+            lblSejaBemVindo.TextAlign = ContentAlignment.MiddleCenter;
             lblSejaBemVindo.Click += lblSejaBemVindo_Click;
             // 
             // frmPrincipal
@@ -155,6 +148,5 @@
         private SaveFileDialog saveFileDialog1;
         private Label lblSejaBemVindo;
         private ToolStripMenuItem agendaToolStripMenuItem;
-        private ToolStripMenuItem alterarSenhaUsuárioToolStripMenuItem;
     }
 }
