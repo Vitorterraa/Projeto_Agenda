@@ -17,6 +17,10 @@ namespace ProjetoAgenda.View
         {
             InitializeComponent();
         }
+        private void AtualizaDataGrid()
+        {
+            
+        }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -35,6 +39,11 @@ namespace ProjetoAgenda.View
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

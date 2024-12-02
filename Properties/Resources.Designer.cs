@@ -73,6 +73,16 @@ namespace ProjetoAgenda.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fundo_agenda {
+            get {
+                object obj = ResourceManager.GetObject("fundo-agenda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sao_paulo_fundo2 {
             get {
                 object obj = ResourceManager.GetObject("sao-paulo-fundo2", resourceCulture);

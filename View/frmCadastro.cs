@@ -21,7 +21,7 @@ namespace ProjetoAgenda
         }
         private void MinimoDeCaracter()
         {
-            if (txtSenha.Text.Length >= 8 && txtSenhaRep.Text.Length >= 8 && txtNome.Text.Length > 1 && txtUsuário.Text.Length > 5 && txtSenha.Text == txtSenhaRep.Text)
+            if (txtSenha.Text.Length >= 8 && txtSenhaRep.Text.Length >= 8 && txtNome.Text.Length > 1 && txtUsuário.Text.Length > 2 && txtSenha.Text == txtSenhaRep.Text)
             {
                 btnCadastro.Enabled = true;
             }

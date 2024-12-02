@@ -34,6 +34,8 @@ namespace ProjetoAgenda.View
         {
             string categoria = txtNomeCategoria.Text;
 
+            string usuario = txtNomeCategoria.Text;
+
             CategoriaController controleCategoria = new CategoriaController();
 
             bool resultado = controleCategoria.AddCategoria(categoria);

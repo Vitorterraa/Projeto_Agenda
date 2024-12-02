@@ -25,13 +25,14 @@ namespace ProjetoAgenda.Controller
 
                 conexao.Open();
 
-                string sql = "INSERT INTO tbcategoria (categoria) values (@categoria, @usuario);";
+                string sql = "INSERT INTO tbcategoria (categoria) values (@categoria);";
 
                 
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
                 comando.Parameters.AddWithValue("@categoria", categoria);
+
 
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
@@ -112,7 +113,7 @@ namespace ProjetoAgenda.Controller
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
 
                 string sql = @"delete from tbcategoria
@@ -160,7 +161,7 @@ namespace ProjetoAgenda.Controller
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
 
                 string sql = @"update tbcategoria set categoria = @categoria

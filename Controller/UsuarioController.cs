@@ -14,11 +14,12 @@ namespace ProjetoAgenda.Controller
     {
         public bool AddUsuario (string nome, string usuario, string telefone, string senha)
         {
+            MySqlConnection conexao = null;
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                 conexao = ConexaoDB.CriarConexao();
 
-                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) values (@nome,  @usuario, @telefone, @senha);";
+                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) values (@nome, @usuario, @telefone, @senha);";
 
                 
 
@@ -26,8 +27,8 @@ namespace ProjetoAgenda.Controller
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
-                
 
+                
 
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@usuario", usuario);
@@ -38,16 +39,18 @@ namespace ProjetoAgenda.Controller
 
                 
 
-                conexao.Close();
+                
 
                 if (linhasAfetadas > 0)
                 {
+                    
                     string sql2 = $"create user '{usuario}'@'%' identified by '{senha}'; \r\ngrant all privileges on dbagenda.* to '{usuario}'@'%';\r\nflush privileges;";
                     
-                    comando = new MySqlCommand(sql2, conexao);
+                    comando = new MySqlCommand(sql, conexao);
 
                     linhasAfetadas = comando.ExecuteNonQuery();
                     return true;
+                    
                 }
                 else 
                 { 
@@ -63,6 +66,11 @@ namespace ProjetoAgenda.Controller
                 MessageBox.Show($"Erro ao efetuar o cadastro: {erro.Message}");
                 return false;
             }
+            finally
+            {
+                conexao.Close();
+            }
+            
 
         }
 
@@ -89,16 +97,20 @@ namespace ProjetoAgenda.Controller
                 MySqlDataReader resultado = comando.ExecuteReader();
 
 
-                conexao.Close();
+                
                 if (resultado.Read())
                 {
                     UserSession.usuario = resultado.GetString(0);
                     UserSession.senha = resultado.GetString(1);
-                    
+                    UserSession.Nome = resultado.GetString(2);
+
                     return true;
                 }
                 else
-                { return false; }
+                {
+                    conexao.Close();
+                    return false; 
+                }
                 
             }
             catch

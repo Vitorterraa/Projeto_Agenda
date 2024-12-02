@@ -36,10 +36,10 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             excluirUsuárioToolStripMenuItem = new ToolStripMenuItem();
+            alterarSenhaUsuárioToolStripMenuItem = new ToolStripMenuItem();
             agendaToolStripMenuItem = new ToolStripMenuItem();
             saveFileDialog1 = new SaveFileDialog();
             lblSejaBemVindo = new Label();
-            alterarSenhaUsuárioToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -98,6 +98,13 @@
             excluirUsuárioToolStripMenuItem.Text = "Excluir Usuário";
             excluirUsuárioToolStripMenuItem.Click += excluirUsuárioToolStripMenuItem_Click;
             // 
+            // alterarSenhaUsuárioToolStripMenuItem
+            // 
+            alterarSenhaUsuárioToolStripMenuItem.Name = "alterarSenhaUsuárioToolStripMenuItem";
+            alterarSenhaUsuárioToolStripMenuItem.Size = new Size(185, 22);
+            alterarSenhaUsuárioToolStripMenuItem.Text = "Alterar senha usuário";
+            alterarSenhaUsuárioToolStripMenuItem.Click += alterarSenhaUsuárioToolStripMenuItem_Click;
+            // 
             // agendaToolStripMenuItem
             // 
             agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
@@ -115,13 +122,7 @@
             lblSejaBemVindo.Size = new Size(75, 37);
             lblSejaBemVindo.TabIndex = 1;
             lblSejaBemVindo.Text = "label";
-            // 
-            // alterarSenhaUsuárioToolStripMenuItem
-            // 
-            alterarSenhaUsuárioToolStripMenuItem.Name = "alterarSenhaUsuárioToolStripMenuItem";
-            alterarSenhaUsuárioToolStripMenuItem.Size = new Size(185, 22);
-            alterarSenhaUsuárioToolStripMenuItem.Text = "Alterar senha usuário";
-            alterarSenhaUsuárioToolStripMenuItem.Click += alterarSenhaUsuárioToolStripMenuItem_Click;
+            lblSejaBemVindo.Click += lblSejaBemVindo_Click;
             // 
             // frmPrincipal
             // 

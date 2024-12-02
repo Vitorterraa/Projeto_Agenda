@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgvAgenda = new DataGridView();
             groupBox1 = new GroupBox();
             cmbCategoria = new ComboBox();
             button3 = new Button();
@@ -39,17 +39,17 @@
             txtTelefone = new TextBox();
             label1 = new Label();
             txtContato = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAgenda).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAgenda
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(406, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(382, 426);
-            dataGridView1.TabIndex = 0;
+            dgvAgenda.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAgenda.Location = new Point(406, 12);
+            dgvAgenda.Name = "dgvAgenda";
+            dgvAgenda.Size = new Size(382, 426);
+            dgvAgenda.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -91,15 +91,18 @@
             // 
             // button2
             // 
+            button2.Font = new Font("Comic Sans MS", 12F);
             button2.Location = new Point(167, 268);
             button2.Name = "button2";
             button2.Size = new Size(113, 40);
             button2.TabIndex = 7;
             button2.Text = "Excluir";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
+            button1.Font = new Font("Comic Sans MS", 12F);
             button1.Location = new Point(6, 268);
             button1.Name = "button1";
             button1.Size = new Size(113, 40);
@@ -110,20 +113,20 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F);
+            label3.Font = new Font("Comic Sans MS", 12F);
             label3.Location = new Point(6, 170);
             label3.Name = "label3";
-            label3.Size = new Size(80, 21);
+            label3.Size = new Size(85, 23);
             label3.TabIndex = 5;
             label3.Text = "Categoria:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
+            label2.Font = new Font("Comic Sans MS", 12F);
             label2.Location = new Point(6, 99);
             label2.Name = "label2";
-            label2.Size = new Size(70, 21);
+            label2.Size = new Size(79, 23);
             label2.TabIndex = 3;
             label2.Text = "Telefone:";
             // 
@@ -138,10 +141,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
+            label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(6, 30);
             label1.Name = "label1";
-            label1.Size = new Size(68, 21);
+            label1.Size = new Size(71, 23);
             label1.TabIndex = 1;
             label1.Text = "Contato:";
             // 
@@ -157,13 +160,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.fundo_agenda;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvAgenda);
             Name = "frmAgenda";
             Text = "frmAgenda";
             Load += frmAgenda_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAgenda).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -171,7 +175,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvAgenda;
         private GroupBox groupBox1;
         private Button button3;
         private Button button2;

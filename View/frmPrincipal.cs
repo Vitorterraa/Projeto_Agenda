@@ -67,5 +67,10 @@ namespace ProjetoAgenda
             frmAltUsuario formularioAlterarSenha = new frmAltUsuario();
             formularioAlterarSenha.ShowDialog();
         }
+
+        private void lblSejaBemVindo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

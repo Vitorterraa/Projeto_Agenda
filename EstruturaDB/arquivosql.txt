@@ -1,0 +1,125 @@
+create database dbagenda;
+use dbagenda;
+create table tbusuarios (
+nome varchar (50) not null,
+usuario varchar(40) primary key,
+telefone varchar (15),
+senha varchar (20) not null
+);
+
+create table tbcategoria (
+id_categoria int auto_increment primary key,
+categoria varchar (50) not null,
+usuario varchar (50) not null
+);
+
+delimiter $$
+create trigger trInsertCategoria
+BEFORE 
+INSERT
+ON tbcategoria
+FOR EACH ROW
+BEGIN
+SET NEW.usuario = current_user();
+END;
+$$
+
+create table tblog (
+id_log int auto_increment primary key,
+usuario varchar (40),
+dataehora timestamp not null,
+descricao varchar (70)
+); 
+
+delimiter $$
+
+create trigger trLogDeleteCategoria
+after
+delete
+on tbcategoria
+for each row
+begin
+	insert into tblog
+    (usuario, dataehora, descricao)
+    values
+    (user(),
+    current_timestamp(),
+    concat('A categoria', old.categoria, 'foi excluída')
+    );
+end;
+$$
+delimiter ;
+
+?
+delimiter ;
+
+create table tblog(
+id_log int primary key auto_increment,
+usuario varchar(20),
+datahora timestamp ,
+descricao varchar(50)
+);
+
+delimiter $$
+create trigger trLogDeleteCategoria
+after
+delete
+on tbcategoria
+for each row
+begin
+insert into tblog
+??????(usuario,
+??????datahora,
+??????descricao)
+values 
+????????????(user(),
+        current_timestamp(),
+        concat('A categoria ', old.categoria, ' foi exlcuida')
+        );
+end;
+$$
+
+
+delimiter $$
+create trigger trLogAlteraCategoria
+after
+UPDATE
+on tbcategoria
+for each row
+begin
+insert into tblog
+(usuario,
+datahora,
+descricao)
+values 
+(user(),
+current_timestamp(),
+concat('A categoria ', old.categoria, ' foi alterada', ' para ', new.categoria)
+        );
+end;
+$$
+
+
+
+delimiter $$
+create trigger trInsertCategoria
+BEFORE 
+INSERT
+ON tbcategoria
+FOR EACH ROW
+BEGIN
+SET NEW.usuario = current_user();
+END;
+$$
+
+
+create table tbcontato (
+id_contato int auto_increment primary key,
+contato varchar (40),
+telefone timestamp not null,
+categoria varchar (70)
+); 
+
+
+
+

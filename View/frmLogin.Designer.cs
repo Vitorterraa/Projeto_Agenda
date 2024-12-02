@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            txtUsuário = new TextBox();
+            txtUsuario = new TextBox();
             label1 = new Label();
             txtSenha = new TextBox();
             label2 = new Label();
@@ -37,15 +37,15 @@
             btnCadastro = new Button();
             SuspendLayout();
             // 
-            // txtUsuário
+            // txtUsuario
             // 
-            txtUsuário.Location = new Point(68, 83);
-            txtUsuário.Margin = new Padding(3, 2, 3, 2);
-            txtUsuário.Multiline = true;
-            txtUsuário.Name = "txtUsuário";
-            txtUsuário.Size = new Size(321, 26);
-            txtUsuário.TabIndex = 0;
-            txtUsuário.TextChanged += txtUsuário_TextChanged;
+            txtUsuario.Location = new Point(68, 83);
+            txtUsuario.Margin = new Padding(3, 2, 3, 2);
+            txtUsuario.Multiline = true;
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(321, 26);
+            txtUsuario.TabIndex = 0;
+            txtUsuario.TextChanged += txtUsuário_TextChanged;
             // 
             // label1
             // 
@@ -119,7 +119,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtSenha);
-            Controls.Add(txtUsuário);
+            Controls.Add(txtUsuario);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmLogin";
@@ -130,7 +130,7 @@
 
         #endregion
 
-        private TextBox txtUsuário;
+        private TextBox txtUsuario;
         private Label label1;
         private TextBox txtSenha;
         private Label label2;
