@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>icon - projeto-agenda.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon - projeto-agenda.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MySqlConnector" Version="2.3.7" />

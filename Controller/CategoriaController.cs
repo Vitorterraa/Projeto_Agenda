@@ -193,7 +193,7 @@ namespace ProjetoAgenda.Controller
 
             catch (Exception erro)
             {
-                MessageBox.Show($"Erro ao efetuar a exclusão: {erro.Message}");
+                MessageBox.Show($"Erro ao efetuar a alteração: {erro.Message}");
                 return false;
             }
 

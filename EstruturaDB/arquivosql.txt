@@ -76,15 +76,115 @@ END;
 $$
 delimiter ;
 
+delimiter $$
+create trigger trLogInsertCategoria
+BEFORE 
+INSERT
+ON tbcategoria
+FOR EACH ROW
+BEGIN
+insert into tblog
+(usuario,
+datahora,
+descricao
+)
+values 
+(user(),
+current_timestamp(),
+concat('O contato ' ,  new.categoria , ' foi Inserido'));
+END;
+$$
+delimiter ;
+
+
 create table tbcontato (
 id_contato int auto_increment primary key,
 contato varchar (40),
-telefone timestamp not null,
-categoria varchar (70)
+telefone varchar (40) not null,
+categoria varchar (70),
+usuario varchar (30) not null
 ); 
 
 
-select * from tblog;
+delimiter $$
+create trigger trLogDeleteContato
+after
+delete
+on tbcontato
+for each row
+begin
+insert into tblog
+(usuario,
+datahora,
+descricao)
+values 
+(user(),
+current_timestamp(),
+concat('O contato ' ,  old.contato , ' foi Excluido')
+        );
+end;
+$$
+
+delimiter ; 
+
+
+delimiter $$
+create trigger trInsertContato
+BEFORE 
+INSERT
+ON tbcontato
+FOR EACH ROW
+BEGIN
+SET NEW.usuario = user();
+END;
+$$
+delimiter ;
+
+
+delimiter $$
+create trigger trLogInsertContato
+BEFORE 
+INSERT
+ON tbcontato
+FOR EACH ROW
+BEGIN
+insert into tblog
+(usuario,
+datahora,
+descricao
+)
+values 
+(user(),
+current_timestamp(),
+concat('O contato ' ,  new.contato , ' foi Inserido'));
+END;
+$$
+delimiter ;
+
+delimiter $$
+create trigger trLogAlteraContato
+after
+UPDATE
+on tbcontato
+for each row
+begin
+insert into tblog
+(usuario,
+datahora,
+descricao)
+values 
+(user(),
+current_timestamp(),
+concat('O contato ', old.contato, ' foi alterado', ' para ', new.contato)
+        );
+end;
+$$
+
+delimiter ;
+
+
+
+
 
 
 

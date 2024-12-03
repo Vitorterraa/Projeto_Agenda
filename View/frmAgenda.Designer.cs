@@ -30,7 +30,7 @@
         {
             dgvAgenda = new DataGridView();
             groupBox1 = new GroupBox();
-            txtCategoria = new TextBox();
+            cmbCategoria = new ComboBox();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -54,7 +54,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtCategoria);
+            groupBox1.Controls.Add(cmbCategoria);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
@@ -71,13 +71,14 @@
             groupBox1.Text = "Criar contato";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // txtCategoria
+            // cmbCategoria
             // 
-            txtCategoria.Location = new Point(6, 196);
-            txtCategoria.Multiline = true;
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(274, 30);
-            txtCategoria.TabIndex = 9;
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Location = new Point(6, 196);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(274, 23);
+            cmbCategoria.TabIndex = 9;
+            cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
             // 
             // button3
             // 
@@ -88,6 +89,7 @@
             button3.TabIndex = 8;
             button3.Text = "Alterar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -186,6 +188,6 @@
         private TextBox txtTelefone;
         private Label label1;
         private TextBox txtContato;
-        private TextBox txtCategoria;
+        private ComboBox cmbCategoria;
     }
 }

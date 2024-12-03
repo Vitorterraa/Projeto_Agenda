@@ -21,11 +21,11 @@ namespace ProjetoAgenda.View
         }
         private void AtualizaDataGrid()
         {
-          
-           AgendaController controleContatos = new AgendaController();
-           DataTable tabela = controleContatos.GetContatos();
-           dgvAgenda.DataSource = tabela;
-            
+
+            AgendaController controleContatos = new AgendaController();
+            DataTable tabela = controleContatos.GetContatos();
+            dgvAgenda.DataSource = tabela;
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -35,10 +35,14 @@ namespace ProjetoAgenda.View
 
         private void frmAgenda_Load(object sender, EventArgs e)
         {
-            
-            //cmbCategoria.DataSource = tabela;
-            //cmbCategoria.DisplayMember = "categoria";
-            //cmbCategoria.ValueMember = "id_categoria";
+            CategoriaController controleCategoria = new CategoriaController();
+            DataTable tabelaCategoria = controleCategoria.GetCategorias();
+            cmbCategoria.DataSource = tabelaCategoria;
+            cmbCategoria.DisplayMember = "categoria";
+
+            AgendaController controleAgenda = new AgendaController();
+            DataTable tabela = controleAgenda.GetContatos();
+            dgvAgenda.DataSource = tabela;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,11 +76,11 @@ namespace ProjetoAgenda.View
 
             string telefone = txtTelefone.Text;
 
-            string categoria = txtCategoria.Text;
+            string categoria = cmbCategoria.Text;
 
             AgendaController controleAgenda = new AgendaController();
 
-            bool resultado = controleAgenda.AddContato(contato, telefone, categoria);
+            bool resultado = controleAgenda.AddContato(txtContato.Text, txtTelefone.Text, cmbCategoria.Text);
 
             if (resultado == true)
             {
@@ -97,5 +101,51 @@ namespace ProjetoAgenda.View
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dgvAgenda.SelectedRows.Count > 0)
+            {
+
+                int codigo = Convert.ToInt32(dgvAgenda.SelectedRows[0].Cells[0].Value);
+
+                string novoContato = txtContato.Text;
+                string novoTelefone = txtTelefone.Text;
+                string novaCategoria = cmbCategoria.Text;
+                AgendaController contatoController = new AgendaController();
+
+                bool resultado = contatoController.AltContato(codigo, novoContato, novoTelefone, novaCategoria);
+                if (resultado)
+                {
+                    MessageBox.Show("Alteração feita com sucesso!");
+                    AtualizaDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar o contato");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma linha selecionada.");
+            }
+            AtualizaDataGrid();
+
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //int contato = Convert.ToInt32(dgvAgenda.SelectedRows[0].Cells[0].Value);
+        //AgendaController alterarcontato = new AgendaController();
+        //alterarcontato.AltContato(id_contato, contato, telefone, categoria);
+
+        //AgendaController controleContato = new AgendaController();
+        //DataTable tabela = controleContato.GetContatos();
+        //dgvAgenda.DataSource = tabela;
     }
+
+
 }

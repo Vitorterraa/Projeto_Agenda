@@ -72,41 +72,19 @@ namespace ProjetoAgenda.Controller
         public DataTable GetContatos()
         {
             MySqlConnection conexao = null;
-
             try
             {
-                //cria a conexao,usei classe ConexaoDB
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
-                //comando sql para retornar os dados da tabela
-                string sql = @$"select id_contato as 'Código',
-                                contato as 'Contato',
-                                telefone as 'Telefone',
-                                categoria as 'Categoria'
-                                from tbcontato;
-                                where contato like '{UserSession.usuario}@%';";
-
-
-                //abri a conexao
-                conexao.Open();
-
+                string sql = @"SELECT id_contato as 'Código', contato as 'Contato', telefone as 'Telefone', categoria as 'Categoria' FROM tbcontato WHERE usuario = User()";
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
-
-                //criei apenas a tabela, vazia
-                DataTable tabela = new DataTable();
-
-                //o adaptador vai preencher a tabela com os dados
-                adaptador.Fill(tabela);
-
+                DataTable tabela = new DataTable(); adaptador.Fill(tabela);
                 return tabela;
             }
             catch (Exception erro)
             {
-                MessageBox.Show($"Erro ao recuperar categorias {erro.Message}");
-
+                MessageBox.Show($"Erro ao recuperar contatos: {erro.Message}");
                 return new DataTable();
-
-
             }
             finally
             {
@@ -160,5 +138,59 @@ namespace ProjetoAgenda.Controller
             }
 
         }
+
+        public bool AltContato(int id_contato, string contato, string telefone, string categoria)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
+
+
+                string sql = @"update tbcontato 
+                                set contato = @contato
+                                where id_contato = @id_contato;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                
+                comando.Parameters.AddWithValue("@contato", contato);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@categoria", categoria);
+                comando.Parameters.AddWithValue("@id_contato", id_contato);
+
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+
+
+                if (linhasAfetadas > 0)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao efetuar a alteração: {erro.Message}");
+                return false;
+            }
+
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
     }
 }
